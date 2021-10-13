@@ -10,7 +10,9 @@ public class Expression {
 
         String [] args = ExpressionScanner.getArgs(input);
         this.isRoman = ExpressionScanner.isRoman(input);
-
+        
+        if (!ExpressionScanner.isOperation(input)) throw new NotAppropriateOperation ("Invalid Expression");
+        
         if (isRoman){
             a = RomanTranslator.transToInteger(args[0]);
             b = RomanTranslator.transToInteger(args[1]);
